@@ -10,4 +10,4 @@
         %h3= product.title
         = sanitize(product.description)
         .price_line
-          %span.price= number_to_currency(product.price)
+          %span.price= number_to_currency(product.price, unit: "zł", format: "%n %u")
