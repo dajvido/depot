@@ -21,5 +21,7 @@
             = link_to 'News', store_path
           %li
             = link_to 'Contact', store_path
+        %p.time
+          = "It's #{l @date_now, format: :short}"
       #main
         = yield
