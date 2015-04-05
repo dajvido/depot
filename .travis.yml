@@ -3,3 +3,6 @@ rvm:
   - 2.2.0
 before_script:
   - "echo \"Depot::Application.config.secret_key_base = '$(bundle exec rake secret)'\" > config/initializers/secret_token.rb"
+addons:
+  code_climate:
+    repo_token: 25173a01085bc5113d415a054324faa4c8778f3f60e376187c52e4bfbae8dbcf

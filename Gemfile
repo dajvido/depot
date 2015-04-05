@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Use Code Climate
+gem "codeclimate-test-reporter", group: :test, require: nil
+# Use HAML
 gem 'haml-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
