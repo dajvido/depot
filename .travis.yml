@@ -1,5 +1,5 @@
 language: ruby
 rvm:
   - 2.2.0
-env:
-  SECRET_KEY_BASE="$(bundle exec rake secret)"
+before_script:
+  - "echo \"Depot::Application.config.secret_key_base = '$(bundle exec rake secret)'\" > config/initializers/secret_token.rb"
