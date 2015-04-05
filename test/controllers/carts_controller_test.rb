@@ -47,4 +47,9 @@ class CartsControllerTest < ActionController::TestCase
 
     assert_redirected_to store_path
   end
+
+  test "should notice invalid cart" do
+    get :show, id: -1
+    assert_redirected_to store_path
+  end
 end
