@@ -1,6 +1,7 @@
 - if notice
   %p#notice= notice
-
+- if @session_counter > 5
+  %p= "You have been here #{pluralize(@session_counter, "time")}."
 %h1 Your Pragmatic Catalog
 - cache ['store', Product.latest] do
   - @products.each do |product|
