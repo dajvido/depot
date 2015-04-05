@@ -9,12 +9,6 @@ class ProductsControllerTest < ActionController::TestCase
       image_url: 'lorem.jpg',
       price: 19.95
     }
-    @product_latest = {
-      title: 'This is latest Product!',
-      description: 'Nothing to say here at all.',
-      price: 1,
-      image_url: 'MyPrettyImageIThinkSo.jpg'
-    }
   end
 
   test "should get index" do
@@ -57,10 +51,5 @@ class ProductsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to products_path
-  end
-
-  test "should get latest product" do
-    Product.create(@product_latest)
-    assert_equal "This is latest Product!", Product.latest.title
   end
 end
