@@ -10,4 +10,10 @@ class StoreControllerTest < ActionController::TestCase
     assert_select '.price', /^\d[,\d]+\.\d\d zł$/
   end
 
+  test "should display session counter" do
+    15.times do
+      get :index
+    end
+    assert_select '.session_counter', 'You have been here 15 times.'
+  end
 end
