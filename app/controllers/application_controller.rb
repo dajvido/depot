@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
   def set_date
     @date_now = Time.now
   end
+
+  private
+    def current_cart
+      Cart.find(session[:cart_id])
+    rescue ActivityRecord::RecordNotFound
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      cart 
+    end
 end
