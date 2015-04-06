@@ -1,0 +1,8 @@
+%h2 Your Cart
+%table
+  = render(cart.line_items)
+  %tr.total_line
+    %td{ colspan: 2 } Total
+    %td.total_cell= number_to_currency(cart.total_price, unit: "zł", format: "%n %u")
+= button_to 'Empty cart', cart, method: :delete,
+  data: { confirm: 'Are you sure?' }
