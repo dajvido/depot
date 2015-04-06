@@ -67,7 +67,7 @@ class LineItemsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to @line_item.cart, notice: 'Book has been removed from your cart.' }
+      format.html { redirect_to store_url, notice: 'Book has been removed from your cart.' }
       format.json { head :no_content }
     end
   end
