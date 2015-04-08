@@ -34,6 +34,6 @@ class CartTest < ActiveSupport::TestCase
     cart.add_product(products(:one).id, products(:one).price).save!
     line_item = LineItem.find_by_product_id(products(:one))
     cart.decrement_line_item_quantity(line_item.id).save!
-    assert_equal nil, cart.line_items.find_by(product_id: products(:one).id)
+    assert_nil cart.line_items.find_by(product_id: products(:one).id)
   end
 end
