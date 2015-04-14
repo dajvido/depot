@@ -15,6 +15,12 @@ class Cart < ActiveRecord::Base
     line_items.to_a.sum { |item| item.total_price }
   end
 
+  def increment_line_item_quantity(line_item_id)
+    current_item = line_items.find(line_item_id)
+    current_item.quantity += 1
+    current_item
+  end
+
   def decrement_line_item_quantity(line_item_id)
     current_item = line_items.find(line_item_id)
 

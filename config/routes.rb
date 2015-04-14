@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :line_items do
     put 'decrement', on: :member
+    put 'increment', on: :member
   end
 
   resources :carts
