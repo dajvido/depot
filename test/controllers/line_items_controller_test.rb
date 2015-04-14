@@ -35,6 +35,22 @@ class LineItemsControllerTest < ActionController::TestCase
     end
   end
 
+  test "should increment line_item via ajax" do
+    cart = Cart.create
+    cart.add_product(products(:ruby).id, products(:ruby).price).save!
+    session[:cart_id] = cart.id
+    line_item = LineItem.find_by_product_id(products(:ruby))
+
+    assert_difference('LineItem.find_by_product_id(products(:ruby)).quantity') do
+      xhr :put, :increment, id: line_item.id, line_item: { product_id: line_item.product_id }
+    end
+
+    assert_response :success
+    assert_select_jquery :html, '#cart' do
+      assert_select 'tr#current_item td', /Programming Ruby 1.9/
+    end
+  end
+
   test "should decrement line_item via ajax" do
     cart = Cart.create
     cart.add_product(products(:ruby).id, products(:ruby).price).save!
